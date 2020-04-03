@@ -9,6 +9,28 @@ npm install
 npm run build:test
 ```
 
+#### How can I use the extension?
+``` $typescript
+import * as hapi from "@hapi/joi";
+import { cpfValidator } from "../index";
+
+const custom = hapi.extend(cpfValidator);
+const schema = custom.object()
+  .keys({
+    mycpf0: custom.string().cpf(),
+    mycpf1: custom.string().cpf(),
+  });
+
+const result = schema.validate({
+    mycpf0: "000000....00001",
+    mycpf1: "0000000jok0001",
+  }, {
+    abortEarly: false
+  });
+
+console.log(result.error);
+```
+
 #### Sources
 - **Validator**: `index.ts`;
 - **Test**: `tst/index.test.ts`;
