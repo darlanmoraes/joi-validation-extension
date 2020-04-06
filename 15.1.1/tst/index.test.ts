@@ -36,11 +36,11 @@ describe("cpf validator", () => {
       };
     });
     
-    expect([
-      { message: '"value4" needs to be a cpf', value: '00000000002' },
-      { message: '"value5" needs to be a cpf', value: '00000000003' },
-      { message: '"value6" needs to be a cpf', value: '00000000002' },
-      { message: '"value7" needs to be a cpf', value: '123' }
-    ]).toEqual(errors);
+    expect(errors).toEqual([
+      { message: '"value4" must be a cpf', value: '00000000002' },
+      { message: '"value5" must be a cpf', value: '00000000003' },
+      { message: '"value6" must be a cpf', value: '00000000002' },
+      { message: '"value7" must be a cpf', value: '123' }
+    ]);
   });
 });

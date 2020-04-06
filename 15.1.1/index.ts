@@ -14,7 +14,7 @@ export function cpfValidator(joi: IGeneric) {
       return value;
     },
     language: {
-      cpf: "needs to be a cpf",
+      cpf: "must be a cpf",
     },
     name: "string",
     rules: [
